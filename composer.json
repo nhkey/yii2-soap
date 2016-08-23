@@ -1,0 +1,20 @@
+{
+  "name": "nhkey/yii2-soap",
+  "description": "Yii2 wrapper for default SoapClient",
+  "keywords": ["yii2", "soap", "component"],
+  "type": "yii2 component",
+  "minimum-stability": "stable",
+  "license": "MIT License",
+  "authors": [
+    {
+      "name": "Mikhail Mikhalev",
+      "email": "mail@mikhailmikhalev.ru"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": { "nhkey\\soap\\": "src\\" }
+  }
+}
