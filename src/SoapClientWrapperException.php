@@ -4,10 +4,8 @@ namespace nhkey\soap;
 
 
 /**
- * Исключение, которое будет формировать ответ клиенту в случае ошибки SOAP клиента
- *
- * Class RestExitException
- * @package app\components
+ * Class SoapClientWrapperException
+ * @package nhkey/soap
  */
 class SoapClientWrapperException extends \Exception
 {
