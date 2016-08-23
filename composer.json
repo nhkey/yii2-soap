@@ -3,6 +3,7 @@
   "description": "Yii2 wrapper for default SoapClient",
   "keywords": ["yii2", "soap", "component"],
   "type": "yii2-extension",
+  "minimum-stability": "stable",
   "license": "MIT License",
   "authors": [
     {

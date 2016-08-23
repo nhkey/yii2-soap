@@ -31,12 +31,14 @@ You need add this extension in your config file in the 'components' section
 ```
 'components' => [
     'soapClient' => [
-        'class' => 'nhkey\yii2-soap',
+        'class' => \nhkey\soap\SoapClientWrapper::className(),
         'url' => '<SOAP_WSDL_URL>',
+        // SoapClient options
         'options' => [
             'cache_wsdl' => WSDL_CACHE_NONE,
             'debug' => true,
         ],
+        // SopaClient headers, object or closure
         'headers' => function() {
             $headers = new stdClass();
             $headers->authDetails = new stdClass(); // This is node in SOAP Header where the login and password.
@@ -44,7 +46,7 @@ You need add this extension in your config file in the 'components' section
             $headers->authDetails->password = 'PASSWORD';
             return $headers;
         }
-    ]
+    ],
     ...
 ]
 ```

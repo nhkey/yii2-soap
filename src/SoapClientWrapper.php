@@ -18,7 +18,7 @@ class SoapClientWrapper extends Component
     public $options = [];
 
     /**
-     * @var object headers of the SOAP client instance
+     * @var object|callable headers of the SOAP client instance
      */
     public $headers = null;
 
@@ -40,15 +40,17 @@ class SoapClientWrapper extends Component
         try {
             $this->_client = new SoapClient($this->url, $this->options);
             if ($this->headers !== null){
-                if (!is_object($this->headers)){
-                    throw new SoapClientWrapperException('Invalid format "header" property');
-                }
+                if (!is_object($this->headers))
+                    throw new SoapClientWrapperException('Invalid format "header" property1');
+
+                if (is_callable($this->headers))
+                    $this->headers = call_user_func($this->headers);
 
                 $headerName = array_keys(get_object_vars($this->headers));
                 if (count($headerName) !== 1)
-                    throw new SoapClientWrapperException('Invalid format "header" property');
+                    throw new SoapClientWrapperException('Invalid format "header" property2');
 
-                $header = new \SoapHeader($this->url, $headerName[0], $this->headers);
+                $header = new \SoapHeader($this->url, $headerName[0], $this->headers->$headerName[0]);
                 $this->_client->__setSoapHeaders($header);
             }
 
@@ -56,6 +58,7 @@ class SoapClientWrapper extends Component
             throw new SoapClientWrapperException($e->getMessage(), (int)$e->getCode(), $e);
         }
     }
+
 
     /**
      * @param string $name
