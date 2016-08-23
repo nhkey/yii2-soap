@@ -2,7 +2,7 @@
   "name": "nhkey/yii2-soap",
   "description": "Yii2 wrapper for default SoapClient",
   "keywords": ["yii2", "soap", "component"],
-  "type": "yii2 component",
+  "type": "yii2-extension",
   "minimum-stability": "stable",
   "license": "MIT License",
   "authors": [
@@ -12,6 +12,7 @@
     }
   ],
   "require": {
+    "ext-soap": "*",
     "yiisoft/yii2": "*"
   },
   "autoload": {

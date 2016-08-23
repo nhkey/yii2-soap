@@ -35,7 +35,7 @@ class SoapClientWrapper extends Component
     {
         parent::init();
         if ($this->url === null) {
-            throw new SoapClientWrapperException('The "url" property must be set.');
+            throw new SoapClientWrapperException('The "url" property is empty');
         }
         try {
             $this->_client = new SoapClient($this->url, $this->options);
@@ -72,21 +72,33 @@ class SoapClientWrapper extends Component
         }
     }
 
+    /**
+     * @return string
+     */
     public function getLastResponse()
     {
         return $this->_client->__getLastResponse();
     }
 
+    /**
+     * @return string
+     */
     public function getLastRequest()
     {
         return $this->_client->__getLastRequest();
     }
 
+    /**
+     * @return string
+     */
     public function getLastResponseHeaders()
     {
         return $this->_client->__getLastResponseHeaders();
     }
 
+    /**
+     * @return string
+     */
     public function getLastRequestHeaders()
     {
         return $this->_client->__getLastRequestHeaders();
