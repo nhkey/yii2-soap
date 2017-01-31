@@ -28,7 +28,7 @@ Usage
 -----
 
 You need add this extension in your config file in the 'components' section
-```
+```php
 'components' => [
     'soapClient' => [
         'class' => \nhkey\soap\SoapClientWrapper::className(),
@@ -52,7 +52,7 @@ You need add this extension in your config file in the 'components' section
 ```
 
 Now you can use this extension, e.g.:
-```
+```php
 try {
     $soap = Yii::$app->soapClient;
     $result = $soap->makeSmb(['arg1' => 'foo', 'arg2' => 'bar']);
